@@ -1,6 +1,5 @@
 backscatter.dmap package
 ========================
-
 Python based library for reading and writing SuperDARN data in the dmap format
 
 This project attempts to recreate the DMAP file encoding and decoding from RST. This version requires no dependencies on RST and can easily be imported to your Python scripts. The only dependency this project has is Numpy, as the package is both compatible with Numpy arrays and standard Python lists. This project is much more robust in error handling than the C version so it can be used to parse radar data from sockets as well.
@@ -44,7 +43,6 @@ DMAP  CHAR  SHORT  INT  FLOAT  DOUBLE  STRING  LONG  UCHAR  USHORT  UINT  ULONG
 
 Reading and decoding data
 -------------------------
-
 To work with the package there are simple to use functions that abstract the DMAP complexity for the user. To read and decode the data from any DMAP formatted file, use:
 :code:`parse_dmap_format_from_file(filepath, raw_dmap=False)`
 
@@ -56,7 +54,6 @@ Both of these functions return a list of dictionaries that hold the data for eac
 
 Encoding and writing data
 -------------------------
-
 The underlying algorithm for writing and encoding data to a DMAP file is slightly more complicated. When determining data types to be encoded, dmap writing will default to use the Python type, unless a user defined dictionary is supplied that overrides what type of data something is. This is neccessary to order to make files compatible with the C reading routines. For example in a .fitacf file, `gflg` is an array of 0s and 1s which Python will generate or store as ints. However, this needs to be written out as chars to stay compatible for the C version. The writing routines can also handle both Python lists and Numpy arrays. There is a function that abstracts this complexity for .iqdat,.rawacf,.fitacf, and .map types:
 :code:`dicts_to_file(data_dicts, file_path, file_type='')`
 
@@ -71,17 +68,14 @@ where :code:`name` is the name of dictionary element to override, and :code:`fmt
 
 Exceptions
 ----------
-
 pydmap will raise :code:`DmapDataError` on failure. There are many places where the package can raise this exception so it is recommended wrapping all functions in a :code:`try` clause and handling the exception as you see fit.
 
 Testing
 -------
-
 There are a set of basic unit tests if you make changes. These tests affirm that the package can open and parse common file types. It tests writing capabilites by encoding some data, writing it out, and then trying to parse it again. There is also a randomized test to test error handling of the parsing routines. This test takes a valid DMAP record and randomly corrupts 5% of the data to see if the parser throws any unhandled exceptions.
 
 Unimplemented or untested features
 ----------------------------------
-
 I have not tested recursive DMAP records. I'm not aware of any files that use DMAP records within records.
 
 Differing byte endianess. I'm not aware of any files that were written using differing byte endianess. If this is an issue, it can be added
