@@ -27,7 +27,7 @@ from there, or add it to the Python path.
 As development of this package is ongoing, I highly recommend installing this package within a `virtual environment 
 <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`_. backscatter can be installed as a package by running
 ``python setup.py install`` from within the directory OR
-via pip VCS install by running ``pip install git+git://github.com/SuperDARNCanada/backscatter.git`` without having to clone anything!
+via pip VCS install by running ``pip install git+git://github.com/SuperDARNCanada/backscatter.git#egg=backscatter`` without having to clone anything!
 
 backscatter makes use of configuration files at import time, and installation
 creates a system wide configuration file in /etc/backscatter as well as the
