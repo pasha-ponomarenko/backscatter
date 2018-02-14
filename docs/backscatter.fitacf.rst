@@ -1,6 +1,6 @@
 backscatter.fitacf package
 ==========================
-Up to date with RST commit `0b92a6705e28a4663a81ce3352b86aa947103d92 <https://github.com/SuperDARN/rst/commit/0b92a6705e28a4663a81ce3352b86aa947103d92>`_
+Up to date with RST commit `231248523b7c62ee1cb2c3681fb728799e264374 <https://github.com/SuperDARN/rst/commit/231248523b7c62ee1cb2c3681fb728799e264374>`_
 
 Submodules
 ----------
